@@ -16,6 +16,7 @@ const useFetch = () => {
 
             const data = await response.json()
             setData(data)
+            console.log(data)
         } catch (error) {
             setError(error.message)
         } finally {
