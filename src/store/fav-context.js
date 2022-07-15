@@ -5,7 +5,7 @@ const FavContext = React.createContext({
     onAddMovie: (id, title, poster_path, release_year) => { }
 })
 
-export const FavContextProvider = (props) => {
+export const FavContextProvider = props => {
     const [favMovies, setFavMovies] = useState([])
 
     const addMovieHandler = (id, title, poster_path, release_year) => {

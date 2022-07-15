@@ -1,0 +1,60 @@
+.movie-card {
+    flex: 1 0 calc(20% - 10px);
+    height: 300px;
+    margin: 0 5px;
+
+    @media only screen and (min-width: 943px) {
+        max-width: 208px;
+
+        &:nth-child(5n) {
+            max-width: 138px;
+        }
+    }
+
+    @media only screen and (min-width: 759px) and (max-width: 942px) {
+        &:nth-child(4n) {
+            max-width: 138px;
+        }
+    }
+
+    @media only screen and (min-width: 573px) and (max-width: 758px) {
+        &:nth-child(3n) {
+            max-width: 138px;
+        }
+    }
+
+    @media only screen and (max-width: 572px) {
+        max-width: 138px;
+    }
+
+    & a {
+        color: white;
+        text-decoration: none;
+    }
+
+    & img {
+        width: 138px;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    & figcaption {
+        width: 138px;
+        max-height: 37px;
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    & p {
+        margin-top: 0;
+        font-size: 14px;
+        font-weight: 700;
+        color: #586e94;
+    }
+}
