@@ -9,7 +9,8 @@ const Watchlist = () => {
 
     return <section className={styles.watchlist}>
         <h1>My Watchlist</h1>
-        {ctx.favMovies && <MoviesList movies={ctx.favMovies} />}
+        {ctx.favMovies.length < 1 && <p>No movies added yet.</p>}
+        {ctx.favMovies.length > 0 && <MoviesList movies={ctx.favMovies} />}
     </section>
 }
 

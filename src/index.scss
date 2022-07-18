@@ -5,6 +5,20 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #12284e;
+
+    &::after {
+        content: "";
+        background: url('./images/background.jpg')
+            no-repeat center center fixed;
+        opacity: 0.1;
+        background-size: cover;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }
 }
 
 code {
