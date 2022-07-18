@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkallflicks=self.webpackChunkallflicks||[]).push([[874],{874:function(s,e,t){t.r(e),t.d(e,{default:function(){return r}});var c=t(791),i=t(111),l=t(431),a="Watchlist_watchlist__egrIs",n=t(184),r=function(){var s=(0,c.useContext)(i.Z);return(0,n.jsxs)("section",{className:a,children:[(0,n.jsx)("h1",{children:"My Watchlist"}),s.favMovies&&(0,n.jsx)(l.Z,{movies:s.favMovies})]})}}}]);
-//# sourceMappingURL=874.00d4c2ae.chunk.js.map
