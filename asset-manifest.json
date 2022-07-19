@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/allflicks/static/css/main.2c909eef.css",
+    "main.css": "/allflicks/static/css/main.245a690b.css",
     "main.js": "/allflicks/static/js/main.631c6319.js",
     "static/css/517.7f8d0f0c.chunk.css": "/allflicks/static/css/517.7f8d0f0c.chunk.css",
     "static/js/517.559031de.chunk.js": "/allflicks/static/js/517.559031de.chunk.js",
@@ -9,7 +9,7 @@
     "static/js/787.458d6672.chunk.js": "/allflicks/static/js/787.458d6672.chunk.js",
     "static/media/background.jpg": "/allflicks/static/media/background.f1667eb8d834474836d9.jpg",
     "index.html": "/allflicks/index.html",
-    "main.2c909eef.css.map": "/allflicks/static/css/main.2c909eef.css.map",
+    "main.245a690b.css.map": "/allflicks/static/css/main.245a690b.css.map",
     "main.631c6319.js.map": "/allflicks/static/js/main.631c6319.js.map",
     "517.7f8d0f0c.chunk.css.map": "/allflicks/static/css/517.7f8d0f0c.chunk.css.map",
     "517.559031de.chunk.js.map": "/allflicks/static/js/517.559031de.chunk.js.map",
@@ -18,7 +18,7 @@
     "787.458d6672.chunk.js.map": "/allflicks/static/js/787.458d6672.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2c909eef.css",
+    "static/css/main.245a690b.css",
     "static/js/main.631c6319.js"
   ]
 }
