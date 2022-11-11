@@ -1,4 +1,5 @@
 import { Link, Outlet } from 'react-router-dom'
+import styles from './Root.module.scss'
 
 export default function Root() {
     return (
@@ -6,7 +7,9 @@ export default function Root() {
             <header>
                 <h1>Root page</h1>
             </header>
-            <Outlet />
+            <main className={styles.main}>
+                <Outlet />
+            </main>
         </>
     )
 }
