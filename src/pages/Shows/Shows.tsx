@@ -1,12 +1,12 @@
 import FlicksList from '../../components/FlicksList/FlicksList'
 
-function Movies() {
+function Series() {
     return (
         <div>
-            <h1>Movies</h1>
-            <FlicksList type={'movie'} />
+            <h1>TV Shows</h1>
+            <FlicksList type={'tv'} />
         </div>
     )
 }
 
-export default Movies
+export default Series

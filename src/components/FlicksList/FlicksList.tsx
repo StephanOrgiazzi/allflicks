@@ -10,9 +10,9 @@ export interface Flick {
     year: number
 }
 
-function FlicksList() {
+function FlicksList({ type }: { type: string }) {
     const [page, setPage] = useState(1)
-    const [flickType, setFlickType] = useState('movie')
+    const [flickType, setFlickType] = useState(type)
 
     const { data: flicks, isFetching, isLoading } = useFlicksListQuery({ flickType, page })
     const prefetchPage = usePrefetch('flicksList')

@@ -8,12 +8,14 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import Root from './pages/Root/Root'
 import Error from './pages/Error/Error'
 import Movies from './pages/Movies/Movies'
+import Shows from './pages/Shows/Shows'
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Root />} errorElement={<Error />}>
             <Route errorElement={<Error />}>
                 <Route path="/movies/" element={<Movies />} />
+                <Route path="/tv/" element={<Shows />} />
             </Route>
         </Route>
     )
