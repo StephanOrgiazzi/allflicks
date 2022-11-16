@@ -1,8 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
 function NavList() {
-    // This styling will be applied to a <NavLink> when the
-    // route that it links to is currently selected.
     let activeStyle = {
         textDecoration: 'underline'
     }
@@ -13,12 +11,12 @@ function NavList() {
         <nav>
             <ul>
                 <li>
-                    <NavLink to="home" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+                    <NavLink to="/" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
                         Home
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="movies" className={({ isActive }) => (isActive ? activeClassName : undefined)}>
+                    <NavLink to="movie" className={({ isActive }) => (isActive ? activeClassName : undefined)}>
                         Movies
                     </NavLink>
                 </li>

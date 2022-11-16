@@ -7,20 +7,25 @@ export interface Flick {
     id: number
     title: string
     poster_path: string
+    type: string
     year: number
 }
 
 function FlicksList({ type }: { type: string }) {
     const [page, setPage] = useState(1)
-    const [flickType, setFlickType] = useState(type)
+    const [flickType] = useState(type)
 
-    const { data: flicks, isFetching, isLoading } = useFlicksListQuery({ flickType, page })
+    const {
+        data: flicks,
+        isFetching,
+        isLoading
+    } = useFlicksListQuery({ flickType, page }, { refetchOnMountOrArgChange: true })
+
     const prefetchPage = usePrefetch('flicksList')
 
     const prefetchNext = useCallback(() => {
         console.log('prefetching next page')
-        console.log(flicks)
-        prefetchPage(page + 1)
+        prefetchPage({ flickType, page: page + 1 })
     }, [prefetchPage, page])
 
     useEffect(() => {
@@ -36,6 +41,7 @@ function FlicksList({ type }: { type: string }) {
                         id={item.id}
                         title={item.title}
                         poster_path={item.poster_path}
+                        type={flickType}
                         year={item.year}
                     />
                 ))}

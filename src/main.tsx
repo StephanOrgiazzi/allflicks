@@ -9,13 +9,15 @@ import Root from './pages/Root/Root'
 import Error from './pages/Error/Error'
 import Movies from './pages/Movies/Movies'
 import Shows from './pages/Shows/Shows'
+import FlickPage from './components/FlickPage/FlickPage'
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Root />} errorElement={<Error />}>
             <Route errorElement={<Error />}>
-                <Route path="/movies/" element={<Movies />} />
+                <Route path="/movie/" element={<Movies />} />
                 <Route path="/tv/" element={<Shows />} />
+                <Route path="/:flickType/:flickId" element={<FlickPage />} />
             </Route>
         </Route>
     )

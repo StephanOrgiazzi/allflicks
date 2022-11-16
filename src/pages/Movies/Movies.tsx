@@ -4,7 +4,7 @@ function Movies() {
     return (
         <div>
             <h1>Movies</h1>
-            <FlicksList type={'movie'} />
+            <FlicksList type="movie" />
         </div>
     )
 }

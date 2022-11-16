@@ -12,6 +12,9 @@ export default function Root() {
             <main className={styles.main}>
                 <Outlet />
             </main>
+            <footer>
+                <Link to="about">About</Link>
+            </footer>
         </>
     )
 }
