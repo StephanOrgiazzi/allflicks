@@ -1,25 +1,23 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useFlicksListQuery, usePrefetch } from '../../store/apiSlice'
 import FlickCard from '../FlickCard/FlickCard'
+import { Flick } from '../../types'
+import { genreOptions } from '../../utils'
 import styles from './FlicksList.module.scss'
-
-export interface Flick {
-    id: number
-    title: string
-    poster_path: string
-    type: string
-    year: number
-}
 
 function FlicksList({ type }: { type: string }) {
     const [page, setPage] = useState(1)
+    const [genre, setGenre] = useState('all')
     const [flickType] = useState(type)
 
-    const {
-        data: flicks,
-        isFetching,
-        isLoading
-    } = useFlicksListQuery({ flickType, page }, { refetchOnMountOrArgChange: true })
+    const changeGenreHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setGenre(e.target.value)
+    }
+
+    const { data: flicks, isLoading } = useFlicksListQuery(
+        { flickType, page, genre },
+        { refetchOnMountOrArgChange: true }
+    )
 
     const prefetchPage = usePrefetch('flicksList')
 
@@ -34,6 +32,18 @@ function FlicksList({ type }: { type: string }) {
 
     return (
         <>
+            <div className={styles.filters}>
+                <select name="genre" id="genre-select" value={genre} onChange={changeGenreHandler}>
+                    <option disabled>Genre</option>
+                    {genreOptions.map((genre) => {
+                        return (
+                            <option value={genre.value} key={genre.value}>
+                                {genre.name}
+                            </option>
+                        )
+                    })}
+                </select>
+            </div>
             <ul className={styles['flicks-list']} data-testid="flicks-list">
                 {flicks?.map((item: Flick) => (
                     <FlickCard

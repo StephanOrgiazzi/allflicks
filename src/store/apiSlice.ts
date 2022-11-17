@@ -9,8 +9,8 @@ export const apiSlice = createApi({
     tagTypes: ['Flicks'],
     endpoints: (builder) => ({
         flicksList: builder.query({
-            query: ({ flickType, page }) =>
-                `discover/${flickType}?${apiKey}&sort_by=popularity.desc&vote_count.gte=300&page=${page}`,
+            query: ({ flickType, page, genre }) =>
+                `discover/${flickType}?${apiKey}&sort_by=popularity.desc&vote_count.gte=300&with_genres=${genre}&page=${page}`,
             transformResponse: (res: any) => res.results,
             providesTags: ['Flicks']
         }),
