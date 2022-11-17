@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import { apiSlice } from './apiSlice'
-import flicksListReducer from './flicksListSlice'
+import watchListReducer from './watchListSlice'
 
 export const store = configureStore({
     reducer: {
         [apiSlice.reducerPath]: apiSlice.reducer,
-        flicksList: flicksListReducer
+        watchList: watchListReducer
     },
 
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware)

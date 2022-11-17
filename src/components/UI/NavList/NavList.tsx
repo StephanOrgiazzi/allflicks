@@ -25,6 +25,11 @@ function NavList() {
                         {({ isActive }) => <span className={isActive ? activeClassName : undefined}>TV Shows</span>}
                     </NavLink>
                 </li>
+                <li>
+                    <NavLink to="watchlist">
+                        {({ isActive }) => <span className={isActive ? activeClassName : undefined}>Watchlist</span>}
+                    </NavLink>
+                </li>
             </ul>
         </nav>
     )

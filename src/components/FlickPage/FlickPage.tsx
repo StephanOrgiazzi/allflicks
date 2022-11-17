@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useFlickQuery } from '../../store/apiSlice'
 import { convertTime } from '../../utils'
+import { imgBaseUrl } from '../../constants/global'
 import styles from './FlickPage.module.scss'
 
 function FlickPage() {
@@ -20,7 +21,7 @@ function FlickPage() {
 
     const genres = data?.genres?.map((genre: { id: number; name: string }) => `${genre.name}`).join(', ')
     const runtime = data?.runtime ? convertTime(data?.runtime) : `${number_of_seasons} Seasons`
-    const cover = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${data?.poster_path}`
+    const cover = `${imgBaseUrl}${data?.poster_path}`
 
     return (
         <section>

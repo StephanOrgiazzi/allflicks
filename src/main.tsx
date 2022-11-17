@@ -8,6 +8,7 @@ import Error from './pages/Error/Error'
 import Movies from './pages/Movies/Movies'
 import Shows from './pages/Shows/Shows'
 import FlickPage from './components/FlickPage/FlickPage'
+import WatchList from './pages/WatchList/WatchList'
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -16,6 +17,7 @@ const router = createBrowserRouter(
                 <Route path="/movie/" element={<Movies />} />
                 <Route path="/tv/" element={<Shows />} />
                 <Route path="/:flickType/:flickId" element={<FlickPage />} />
+                <Route path="/watchlist/" element={<WatchList />} />
             </Route>
         </Route>
     )
