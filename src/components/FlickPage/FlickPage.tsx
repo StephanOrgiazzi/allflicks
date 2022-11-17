@@ -9,17 +9,17 @@ function FlickPage() {
 
     const {
         backdrop_path: backdrop,
-        description,
-        overview,
         name,
+        number_of_seasons,
+        overview,
         release_date: releaseDate,
         tagline,
         title,
         vote_average: rating
     } = data || {}
 
-    const genres = data?.genres?.map((genre: any) => `${genre.name}`).join(', ')
-    const runtime = convertTime(data?.runtime)
+    const genres = data?.genres?.map((genre: { id: number; name: string }) => `${genre.name}`).join(', ')
+    const runtime = data?.runtime ? convertTime(data?.runtime) : `${number_of_seasons} Seasons`
     const cover = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${data?.poster_path}`
 
     console.log('data', data)

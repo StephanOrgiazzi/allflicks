@@ -34,7 +34,7 @@ function FlicksList({ type }: { type: string }) {
 
     return (
         <>
-            <ul className={styles['flicks-list']}>
+            <ul className={styles['flicks-list']} data-testid="flicks-list">
                 {flicks?.map((item: Flick) => (
                     <FlickCard
                         key={item.id}
