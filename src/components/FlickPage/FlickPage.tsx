@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { useFlickQuery } from '../../features/api/apiSlice'
+import { useFlickQuery } from '../../store/apiSlice'
 import { convertTime } from '../../utils'
 import styles from './FlickPage.module.scss'
 

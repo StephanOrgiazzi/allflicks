@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { useFlicksListQuery, usePrefetch } from '../../features/api/apiSlice'
+import { useFlicksListQuery, usePrefetch } from '../../store/apiSlice'
 import FlickCard from '../FlickCard/FlickCard'
 import styles from './FlicksList.module.scss'
 

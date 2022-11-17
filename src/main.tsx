@@ -1,9 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
-import { apiSlice } from './features/api/apiSlice'
-import { ApiProvider } from '@reduxjs/toolkit/query/react'
-import store from './features/store'
+import store from './store'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import Root from './pages/Root/Root'
 import Error from './pages/Error/Error'
@@ -26,9 +24,7 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
         <Provider store={store}>
-            <ApiProvider api={apiSlice}>
-                <RouterProvider router={router} />
-            </ApiProvider>
+            <RouterProvider router={router} />
         </Provider>
     </React.StrictMode>
 )
