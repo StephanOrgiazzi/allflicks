@@ -33,11 +33,11 @@
                 color: white;
                 font-weight: 800;
                 font-size: 17px;
-            }
 
-            & .active {
-                color: red;
-                font-weight: bold;
+                &:hover,
+                &:focus {
+                    color: #f5f5f5 !important;
+                }
             }
         }
     }
