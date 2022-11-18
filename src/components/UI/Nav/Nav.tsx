@@ -1,6 +1,8 @@
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import styles from './Nav.module.scss'
+import Logo from '../../../assets/logo.png'
 
-function NavList() {
+function Nav() {
     let activeStyle = {
         textDecoration: 'underline'
     }
@@ -8,13 +10,13 @@ function NavList() {
     let activeClassName = 'underline'
 
     return (
-        <nav>
+        <nav className={styles.nav}>
+            <Link to="/">
+                <figure>
+                    <img className={styles.logo} src={Logo} alt="AllFlicks logo" />
+                </figure>
+            </Link>
             <ul>
-                <li>
-                    <NavLink to="/" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-                        Home
-                    </NavLink>
-                </li>
                 <li>
                     <NavLink to="movie" className={({ isActive }) => (isActive ? activeClassName : undefined)}>
                         Movies
@@ -35,4 +37,4 @@ function NavList() {
     )
 }
 
-export default NavList
+export default Nav
