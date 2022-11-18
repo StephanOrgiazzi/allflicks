@@ -31,7 +31,7 @@ function FlicksList({ type }: { type: string }) {
     }, [prefetchNext, isLoading])
 
     return (
-        <>
+        <section className={styles['flicks-list']}>
             <div className={styles.filters}>
                 <select name="genre" id="genre-select" value={genre} onChange={changeGenreHandler}>
                     <option disabled>Genre</option>
@@ -44,7 +44,7 @@ function FlicksList({ type }: { type: string }) {
                     })}
                 </select>
             </div>
-            <ul className={styles['flicks-list']} data-testid="flicks-list">
+            <ul data-testid="flicks-list">
                 {flicks?.map((item: Flick) => (
                     <FlickCard
                         key={item.id}
@@ -57,7 +57,7 @@ function FlicksList({ type }: { type: string }) {
                 ))}
             </ul>
             <button onClick={() => setPage((prev) => prev + 1)}>NEXT</button>
-        </>
+        </section>
     )
 }
 

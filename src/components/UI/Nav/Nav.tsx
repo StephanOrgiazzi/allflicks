@@ -3,33 +3,30 @@ import styles from './Nav.module.scss'
 import Logo from '../../../assets/logo.png'
 
 function Nav() {
-    let activeStyle = {
-        textDecoration: 'underline'
-    }
-
-    let activeClassName = 'underline'
-
     return (
         <nav className={styles.nav}>
-            <Link to="/">
+            <Link to="movie">
                 <figure>
                     <img className={styles.logo} src={Logo} alt="AllFlicks logo" />
                 </figure>
             </Link>
             <ul>
                 <li>
-                    <NavLink to="movie" className={({ isActive }) => (isActive ? activeClassName : undefined)}>
+                    <NavLink to="movie" style={({ isActive }) => (isActive ? { color: '#fff' } : { color: '#545e6f' })}>
                         Movies
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="tv">
-                        {({ isActive }) => <span className={isActive ? activeClassName : undefined}>TV Shows</span>}
+                    <NavLink to="tv" style={({ isActive }) => (isActive ? { color: '#fff' } : { color: '#545e6f' })}>
+                        TV Shows
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="watchlist">
-                        {({ isActive }) => <span className={isActive ? activeClassName : undefined}>Watchlist</span>}
+                    <NavLink
+                        to="watchlist"
+                        style={({ isActive }) => (isActive ? { color: '#fff' } : { color: '#545e6f' })}
+                    >
+                        Watchlist
                     </NavLink>
                 </li>
             </ul>
