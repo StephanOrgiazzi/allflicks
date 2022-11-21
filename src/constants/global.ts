@@ -1,8 +1,9 @@
 const baseUrl = 'https://api.themoviedb.org/3'
-const imgBaseUrl = 'https://image.tmdb.org/t/p/w500https://www.themoviedb.org/t/p/w300_and_h450_bestv2/'
+const imgBaseUrl = 'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/'
+const backdropBaseUrl = 'https://image.tmdb.org/t/p/w500/'
 const apiKey = 'api_key=4279c0bf7fc9803dfda201662c10705f'
 
-const genreOptions = [
+const movieGenreOptions = [
     { value: '', name: 'All' },
     { value: '28', name: 'Action' },
     { value: '12', name: 'Adventure' },
@@ -25,4 +26,4 @@ const tvGenreOptions = [
     { value: '9648', name: 'Mystery' }
 ]
 
-export { baseUrl, imgBaseUrl, apiKey, genreOptions, tvGenreOptions }
+export { baseUrl, imgBaseUrl, backdropBaseUrl, apiKey, movieGenreOptions, tvGenreOptions }

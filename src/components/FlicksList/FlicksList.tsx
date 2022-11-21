@@ -2,16 +2,15 @@ import { useCallback, useEffect, useState } from 'react'
 import { useFlicksListQuery, usePrefetch } from '../../store/apiSlice'
 import FlickCard from '../FlickCard/FlickCard'
 import { Flick } from '../../types'
-import { genreOptions, tvGenreOptions } from '../../constants/global'
+import { movieGenreOptions, tvGenreOptions } from '../../constants/global'
 import styles from './FlicksList.module.scss'
 import Loader from '../UI/Loader/Loader'
-import { useNavigate } from 'react-router-dom'
 
 function FlicksList({ type }: { type: string }) {
     const [page, setPage] = useState(1)
     const [genre, setGenre] = useState('all')
     const [flickType] = useState(type)
-    const navigate = useNavigate()
+    const genreOptions = flickType === 'movie' ? movieGenreOptions : tvGenreOptions
 
     const changeGenreHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setGenre(e.target.value)
@@ -42,22 +41,13 @@ function FlicksList({ type }: { type: string }) {
                     <div className={styles.filters}>
                         <select name="genre" id="genre-select" value={genre} onChange={changeGenreHandler}>
                             <option disabled>Genre</option>
-                            {type === 'movie' &&
-                                genreOptions.map((genre) => {
-                                    return (
-                                        <option value={genre.value} key={genre.value}>
-                                            {genre.name}
-                                        </option>
-                                    )
-                                })}
-                            {type === 'tv' &&
-                                tvGenreOptions.map((genre) => {
-                                    return (
-                                        <option value={genre.value} key={genre.value}>
-                                            {genre.name}
-                                        </option>
-                                    )
-                                })}
+                            {genreOptions.map((genre) => {
+                                return (
+                                    <option value={genre.value} key={genre.value}>
+                                        {genre.name}
+                                    </option>
+                                )
+                            })}
                         </select>
                     </div>
                     <ul data-testid="flicks-list">
@@ -75,7 +65,7 @@ function FlicksList({ type }: { type: string }) {
                     <button onClick={() => setPage((prev) => prev + 1)}>NEXT</button>
                 </section>
             )}
-            {isError && navigate('/error')}
+            {isError && <p>Error: please try again later.</p>}
         </>
     )
 }
