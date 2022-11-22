@@ -5,6 +5,7 @@ import { backdropBaseUrl, imgBaseUrl } from '../../constants/global'
 import { useDispatch } from 'react-redux'
 import { watchListActions } from '../../store/watchListSlice'
 import styles from './FlickPage.module.scss'
+import Loader from '../UI/Loader/Loader'
 
 function FlickPage() {
     const { flickType, flickId } = useParams()
@@ -33,31 +34,36 @@ function FlickPage() {
     }
 
     return (
-        <section className={styles['flick-page']}>
-            <h2>
-                {title ?? name}
-                <span> {title && `(${releaseYear})`}</span>
-            </h2>
-            <div className={styles.hero} style={{ backgroundImage: `url(${backdrop}` }}>
-                <figure>
-                    <img src={cover} alt="Poster of the movie" />
-                </figure>
-                <figcaption>
-                    {title ?? name} <span> {title && `(${releaseYear})`}</span>
-                </figcaption>
-            </div>
-            <p>
-                <span>{genres}</span> &#8226; <span>{runtime}</span>
-            </p>
-            <div className={styles['info']}>
-                <h3>{tagline}</h3>
-                <p>{overview}</p>
-            </div>
-            <button type="button" onClick={addToWatchListHandler}>
-                Add to Watchlist <span>+</span>
-            </button>
+        <>
+            {!isLoading && (
+                <section className={styles['flick-page']}>
+                    <h2>
+                        {title ?? name}
+                        <span> {title && `(${releaseYear})`}</span>
+                    </h2>
+                    <div className={styles.hero} style={{ backgroundImage: `url(${backdrop}` }}>
+                        <figure>
+                            <img src={cover} alt="Poster of the movie" />
+                        </figure>
+                        <figcaption>
+                            {title ?? name} <span> {title && `(${releaseYear})`}</span>
+                        </figcaption>
+                    </div>
+                    <p>
+                        <span>{genres}</span> &#8226; <span>{runtime}</span>
+                    </p>
+                    <div className={styles['info']}>
+                        <h3>{tagline}</h3>
+                        <p>{overview}</p>
+                    </div>
+                    <button type="button" onClick={addToWatchListHandler}>
+                        Add to Watchlist <span>+</span>
+                    </button>
+                </section>
+            )}
             {isError && <p>Error: please try again later.</p>}
-        </section>
+            {isLoading && <Loader />}
+        </>
     )
 }
 

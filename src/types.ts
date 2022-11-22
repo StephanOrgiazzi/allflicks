@@ -5,3 +5,8 @@ export interface Flick {
     type: string
     year: number
 }
+
+export interface FlickElement {
+    id: string
+    type: string
+}

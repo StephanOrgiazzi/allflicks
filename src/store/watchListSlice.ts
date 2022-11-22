@@ -1,9 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
-interface Flick {
-    id: string
-    type: string
-}
+import { FlickElement } from '../types'
 
 const initialState = {
     watchList: []
@@ -14,10 +10,9 @@ const watchListSlice = createSlice({
     initialState,
     reducers: {
         addFlick(state, action) {
-            state.watchList = state.watchList.find((el: Flick) => el.id === action.payload.id)
-                ? state.watchList.filter((el: Flick) => el.id !== action.payload.id)
+            state.watchList = state.watchList.find((el: FlickElement) => el.id === action.payload.id)
+                ? state.watchList.filter((el: FlickElement) => el.id !== action.payload.id)
                 : state.watchList.concat(action.payload)
-            console.log(state.watchList)
         }
     }
 })
