@@ -1,11 +1,9 @@
 import { useSelector } from 'react-redux'
 import FlicksList from '../../components/FlicksList/FlicksList'
-import { FlickElement } from '../../types'
+import { State } from '../../types'
 
 function WatchList() {
-    const state = useSelector((state: any) => state.watchList)
-
-    console.log(state)
+    const state = useSelector((state: State) => state.watchList)
 
     return (
         <div>

@@ -1,4 +1,4 @@
-export interface Flick {
+interface Flick {
     id: number
     title: string
     poster_path: string
@@ -6,7 +6,15 @@ export interface Flick {
     year: number
 }
 
-export interface FlickElement {
+interface FlickElement {
     id: string
     type: string
 }
+
+interface State {
+    watchList: {
+        watchList: FlickElement[]
+    }
+}
+
+export type { Flick, FlickElement, State }

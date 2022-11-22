@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useFlicksListQuery, usePrefetch } from '../../store/apiSlice'
 import FlickCard from '../FlickCard/FlickCard'
-import { Flick } from '../../types'
+import { Flick, FlickElement } from '../../types'
 import { movieGenreOptions, tvGenreOptions } from '../../constants/global'
 import styles from './FlicksList.module.scss'
 import Loader from '../UI/Loader/Loader'
 
-function FlicksList({ type, list }: { type?: string; list?: Flick[] }) {
+function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
     const [page, setPage] = useState(1)
     const [genre, setGenre] = useState('all')
     const [flickType] = useState(type)
