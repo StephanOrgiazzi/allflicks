@@ -2,16 +2,19 @@ import { useParams } from 'react-router-dom'
 import { useFlickQuery } from '../../store/apiSlice'
 import { convertTime } from '../../utils'
 import { backdropBaseUrl, imgBaseUrl } from '../../constants/global'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { watchListActions } from '../../store/watchListSlice'
-import styles from './FlickPage.module.scss'
 import Loader from '../UI/Loader/Loader'
+import { State } from '../../types'
+import styles from './FlickPage.module.scss'
 
 function FlickPage() {
     const { flickType, flickId } = useParams()
     const { data, isLoading, isError } = useFlickQuery({ flickType, flickId }, { skip: !flickId })
 
     const dispatch = useDispatch()
+    const state = useSelector((state: State) => state.watchList)
+    const isInWatchList = state.watchList.some((item) => item.id === flickId)
 
     const { name, number_of_seasons, overview, tagline, title, vote_average: rating } = data || {}
 
@@ -57,7 +60,7 @@ function FlickPage() {
                         <p>{overview}</p>
                     </div>
                     <button type="button" onClick={addToWatchListHandler}>
-                        Add to Watchlist <span>+</span>
+                        {isInWatchList ? 'Remove from Watchlist' : 'Add to Watchlist'}
                     </button>
                 </section>
             )}

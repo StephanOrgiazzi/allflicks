@@ -41,18 +41,20 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
         <>
             {!isLoading && (
                 <section className={styles['flicks-list']}>
-                    <div className={styles.filters}>
-                        <select name="genre" id="genre-select" value={genre} onChange={changeGenreHandler}>
-                            <option disabled>Genre</option>
-                            {genreOptions.map((genre) => {
-                                return (
-                                    <option value={genre.value} key={genre.value}>
-                                        {genre.name}
-                                    </option>
-                                )
-                            })}
-                        </select>
-                    </div>
+                    {!list && (
+                        <div className={styles.filters}>
+                            <select name="genre" id="genre-select" value={genre} onChange={changeGenreHandler}>
+                                <option disabled>Genre</option>
+                                {genreOptions.map((genre) => {
+                                    return (
+                                        <option value={genre.value} key={genre.value}>
+                                            {genre.name}
+                                        </option>
+                                    )
+                                })}
+                            </select>
+                        </div>
+                    )}
                     <ul data-testid="flicks-list">
                         {flicks?.map((item: Flick) => (
                             <FlickCard
@@ -65,10 +67,11 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
                             />
                         ))}
                     </ul>
-                    <button onClick={() => setPage((prev) => prev + 1)}>NEXT</button>
+                    {!list && <button onClick={() => setPage((prev) => prev + 1)}>NEXT</button>}
                 </section>
             )}
             {isError && <p>Error: please try again later.</p>}
+            {!isError && list?.length === 0 && <p>Your watchlist is empty</p>}
             {isLoading && <Loader />}
         </>
     )
