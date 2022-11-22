@@ -6,21 +6,19 @@ import { movieGenreOptions, tvGenreOptions } from '../../constants/global'
 import styles from './FlicksList.module.scss'
 import Loader from '../UI/Loader/Loader'
 
-function FlicksList({ type }: { type: string }) {
+function FlicksList({ type, list }: { type?: string; list?: Flick[] }) {
     const [page, setPage] = useState(1)
     const [genre, setGenre] = useState('all')
     const [flickType] = useState(type)
     const genreOptions = flickType === 'movie' ? movieGenreOptions : tvGenreOptions
 
-    const changeGenreHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setGenre(e.target.value)
-    }
-
-    const {
+    let {
         data: flicks,
         isLoading,
         isError
     } = useFlicksListQuery({ flickType, page, genre }, { refetchOnMountOrArgChange: true })
+
+    if (list) flicks = list
 
     const prefetchPage = usePrefetch('flicksList')
 
@@ -31,7 +29,12 @@ function FlicksList({ type }: { type: string }) {
 
     useEffect(() => {
         if (!isLoading) prefetchNext()
+        console.log('TEST', flicks)
     }, [prefetchNext, isLoading])
+
+    const changeGenreHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setGenre(e.target.value)
+    }
 
     return (
         <>
@@ -57,7 +60,7 @@ function FlicksList({ type }: { type: string }) {
                                 id={item.id}
                                 title={item.title}
                                 poster_path={item.poster_path}
-                                type={flickType}
+                                type={flickType || item.type}
                                 year={item.year}
                             />
                         ))}

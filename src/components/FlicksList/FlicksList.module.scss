@@ -28,4 +28,9 @@
             grid-template-rows: repeat(4, 1fr);
         }
     }
+
+    & button {
+        margin-bottom: 30px;
+        cursor: pointer;
+    }
 }

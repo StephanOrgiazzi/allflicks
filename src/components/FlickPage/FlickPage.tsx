@@ -2,11 +2,15 @@ import { useParams } from 'react-router-dom'
 import { useFlickQuery } from '../../store/apiSlice'
 import { convertTime } from '../../utils'
 import { backdropBaseUrl, imgBaseUrl } from '../../constants/global'
+import { useDispatch } from 'react-redux'
+import { watchListActions } from '../../store/watchListSlice'
 import styles from './FlickPage.module.scss'
 
 function FlickPage() {
     const { flickType, flickId } = useParams()
     const { data, isLoading, isError } = useFlickQuery({ flickType, flickId }, { skip: !flickId })
+
+    const dispatch = useDispatch()
 
     const { name, number_of_seasons, overview, tagline, title, vote_average: rating } = data || {}
 
@@ -15,6 +19,18 @@ function FlickPage() {
     const cover = `${imgBaseUrl}${data?.poster_path}`
     const releaseYear = data?.release_date?.substring(0, 4)
     const backdrop = `${backdropBaseUrl}${data?.backdrop_path}`
+
+    const addToWatchListHandler = () => {
+        dispatch(
+            watchListActions.addFlick({
+                id: flickId,
+                type: flickType,
+                title: title || name,
+                poster_path: data?.poster_path,
+                year: releaseYear
+            })
+        )
+    }
 
     return (
         <section className={styles['flick-page']}>
@@ -37,6 +53,9 @@ function FlickPage() {
                 <h3>{tagline}</h3>
                 <p>{overview}</p>
             </div>
+            <button type="button" onClick={addToWatchListHandler}>
+                Add to Watchlist <span>+</span>
+            </button>
             {isError && <p>Error: please try again later.</p>}
         </section>
     )

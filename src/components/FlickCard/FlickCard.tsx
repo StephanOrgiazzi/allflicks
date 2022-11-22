@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Flick } from '../FlicksList/FlicksList'
+import { Flick } from '../../types'
 
 import styles from './FlickCard.module.scss'
 
