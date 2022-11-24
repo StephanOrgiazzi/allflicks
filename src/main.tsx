@@ -10,6 +10,9 @@ import Shows from './pages/Shows/Shows'
 import FlickPage from './components/FlickPage/FlickPage'
 import WatchList from './pages/WatchList/WatchList'
 
+import { persistor } from './store'
+import { PersistGate } from 'redux-persist/integration/react'
+
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Root />} errorElement={<Error />}>
@@ -26,7 +29,9 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
         <Provider store={store}>
-            <RouterProvider router={router} />
+            <PersistGate loading={null} persistor={persistor}>
+                <RouterProvider router={router} />
+            </PersistGate>
         </Provider>
     </React.StrictMode>
 )
