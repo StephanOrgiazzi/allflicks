@@ -1,4 +1,4 @@
-import FlicksList from '../../components/FlicksList/FlicksList'
+import FlicksList from '../../../components/FlicksList/FlicksList'
 
 function Shows() {
     return (

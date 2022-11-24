@@ -1,10 +1,10 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom'
-import Root from './Root/Root'
-import Error from './Error/Error'
-import Movies from './Movies/Movies'
-import Shows from './Shows/Shows'
+import Root from './pages/Root/Root'
+import Error from './pages/Error/Error'
+import Movies from './pages//Movies/Movies'
+import Shows from './pages/Shows/Shows'
+import WatchList from './pages/WatchList/WatchList'
 import FlickPage from '../components/FlickPage/FlickPage'
-import WatchList from './WatchList/WatchList'
 
 export const router = createBrowserRouter(
     createRoutesFromElements(

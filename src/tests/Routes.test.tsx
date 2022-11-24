@@ -4,9 +4,9 @@ import { Provider } from 'react-redux'
 import { ApiProvider } from '@reduxjs/toolkit/query/react'
 import store from '../store'
 import { apiSlice } from '../store/apiSlice'
-import Movies from '../pages/Movies/Movies'
-import Shows from '../pages/Shows/Shows'
-import Root from '../pages/Root/Root'
+import Movies from '../routes/pages/Movies/Movies'
+import Shows from '../routes/pages/Shows/Shows'
+import Root from '../routes/pages/Root/Root'
 
 describe('Movie route and Show route', () => {
     it('should render a nav element', () => {

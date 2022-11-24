@@ -1,10 +1,10 @@
-import Nav from '../../components/UI/Nav/Nav'
+import Nav from '../../../components/UI/Nav/Nav'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import styles from './Root.module.scss'
 import { useEffect } from 'react'
-import Footer from '../../components/UI/Footer/Footer'
+import Footer from '../../../components/UI/Footer/Footer'
 
-export default function Root() {
+function Root() {
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -24,3 +24,5 @@ export default function Root() {
         </>
     )
 }
+
+export default Root
