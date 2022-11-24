@@ -67,7 +67,10 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
                             />
                         ))}
                     </ul>
-                    {!list && <button onClick={() => setPage((prev) => prev + 1)}>NEXT</button>}
+                    <div className={styles.pagination}>
+                        {!list && page > 1 && <button onClick={() => setPage((prev) => prev - 1)}>PREVIOUS</button>}
+                        {!list && <button onClick={() => setPage((prev) => prev + 1)}>NEXT</button>}
+                    </div>
                 </section>
             )}
             {isError && <p>Error: please try again later.</p>}
