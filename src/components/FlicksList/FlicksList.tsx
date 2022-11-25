@@ -37,6 +37,16 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
         setGenre(e.target.value)
     }
 
+    const nextPageHandler = () => {
+        setPage((prev) => prev + 1)
+        window.scrollTo(0, 0)
+    }
+
+    const backPageHandler = () => {
+        setPage((prev) => prev - 1)
+        window.scrollTo(0, 0)
+    }
+
     return (
         <>
             {!isLoading && (
@@ -68,8 +78,8 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
                         ))}
                     </ul>
                     <div className={styles.pagination}>
-                        {!list && page > 1 && <button onClick={() => setPage((prev) => prev - 1)}>{'<'} Back</button>}
-                        {!list && <button onClick={() => setPage((prev) => prev + 1)}>Next {'>'}</button>}
+                        {!list && page > 1 && <button onClick={backPageHandler}>{'<'} Back</button>}
+                        {!list && <button onClick={nextPageHandler}>Next {'>'}</button>}
                     </div>
                 </section>
             )}
