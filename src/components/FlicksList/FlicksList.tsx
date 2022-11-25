@@ -3,8 +3,8 @@ import { useFlicksListQuery, usePrefetch } from '../../store/apiSlice'
 import FlickCard from '../FlickCard/FlickCard'
 import { Flick, FlickElement } from '../../types'
 import { movieGenreOptions, tvGenreOptions } from '../../constants/global'
-import styles from './FlicksList.module.scss'
 import Loader from '../UI/Loader/Loader'
+import styles from './FlicksList.module.scss'
 
 function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
     const [page, setPage] = useState(1)
@@ -60,7 +60,7 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
                             <FlickCard
                                 key={item.id}
                                 id={item.id}
-                                title={item.title}
+                                title={item.title ?? item.name}
                                 poster_path={item.poster_path}
                                 type={flickType || item.type}
                                 year={item.year}
@@ -68,8 +68,8 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
                         ))}
                     </ul>
                     <div className={styles.pagination}>
-                        {!list && page > 1 && <button onClick={() => setPage((prev) => prev - 1)}>PREVIOUS</button>}
-                        {!list && <button onClick={() => setPage((prev) => prev + 1)}>NEXT</button>}
+                        {!list && page > 1 && <button onClick={() => setPage((prev) => prev - 1)}>{'<'} Back</button>}
+                        {!list && <button onClick={() => setPage((prev) => prev + 1)}>Next {'>'}</button>}
                     </div>
                 </section>
             )}

@@ -9,13 +9,16 @@ specifiers:
   '@types/jest': ^29.2.3
   '@types/react': ^18.0.24
   '@types/react-dom': ^18.0.8
+  '@types/react-lazy-load-image-component': ^1.5.2
   '@types/testing-library__jest-dom': ^5.14.5
   '@vitejs/plugin-react': ^2.2.0
   jsdom: ^20.0.2
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-lazy-load-image-component: ^1.5.6
   react-redux: ^8.0.5
   react-router-dom: ^6.4.3
+  redux: ^4
   redux-mock-store: ^1.5.4
   redux-persist: ^6.0.0
   sass: ^1.56.1
@@ -25,12 +28,15 @@ specifiers:
 
 dependencies:
   '@reduxjs/toolkit': 1.9.0_k4ae6lp43ej6mezo3ztvx6pykq
+  '@types/react-lazy-load-image-component': 1.5.2
   '@types/testing-library__jest-dom': 5.14.5
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  react-redux: 8.0.5_gqczyrwmhlwpr6z64d3xh3wv54
+  react-lazy-load-image-component: 1.5.6_biqbaboplfbrettd7655fr4n2y
+  react-redux: 8.0.5_ux5ypa4vfeu6lrs5gncpqp4a4u
   react-router-dom: 6.4.3_biqbaboplfbrettd7655fr4n2y
-  redux-persist: 6.0.0_react@18.2.0
+  redux: 4.2.0
+  redux-persist: 6.0.0_react@18.2.0+redux@4.2.0
 
 devDependencies:
   '@testing-library/dom': 8.19.0
@@ -416,7 +422,7 @@ packages:
     dependencies:
       immer: 9.0.16
       react: 18.2.0
-      react-redux: 8.0.5_gqczyrwmhlwpr6z64d3xh3wv54
+      react-redux: 8.0.5_ux5ypa4vfeu6lrs5gncpqp4a4u
       redux: 4.2.0
       redux-thunk: 2.4.2_redux@4.2.0
       reselect: 4.1.7
@@ -537,6 +543,13 @@ packages:
     resolution: {integrity: sha512-C3GYO0HLaOkk9dDAz3Dl4sbe4AKUGTCfFIZsz3n/82dPNN8Du533HzKatDxeUYWu24wJgMP1xICqkWk1YOLOIw==}
     dependencies:
       '@types/react': 18.0.25
+
+  /@types/react-lazy-load-image-component/1.5.2:
+    resolution: {integrity: sha512-4NLJsMJVrMv18FuMIkUUBVj/PH9A+BvLKrZC75EWiEFn1IsMrZHgL1tVKw5QBfoa0Qjz6SkWIzEvwcyZ8PgnIg==}
+    dependencies:
+      '@types/react': 18.0.25
+      csstype: 3.1.1
+    dev: false
 
   /@types/react/18.0.25:
     resolution: {integrity: sha512-xD6c0KDT4m7n9uD4ZHi02lzskaiqcBxf4zi+tXZY98a04wvc0hi/TcCPC2FOESZi51Nd7tlUeOJY8RofL799/g==}
@@ -1591,9 +1604,17 @@ packages:
     engines: {node: '>=14'}
     dev: true
 
+  /lodash.debounce/4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+    dev: false
+
   /lodash.isplainobject/4.0.6:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
     dev: true
+
+  /lodash.throttle/4.1.1:
+    resolution: {integrity: sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==}
+    dev: false
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
@@ -1795,7 +1816,19 @@ packages:
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
 
-  /react-redux/8.0.5_gqczyrwmhlwpr6z64d3xh3wv54:
+  /react-lazy-load-image-component/1.5.6_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-M0jeJtOlTHgThOfgYM9krSqYbR6ShxROy/KVankwbw9/amPKG1t5GSGN1sei6Cyu8+QJVuyAUvQ+LFtCVTTlKw==}
+    peerDependencies:
+      react: ^15.x.x || ^16.x.x || ^17.x.x || ^18.x.x
+      react-dom: ^15.x.x || ^16.x.x || ^17.x.x || ^18.x.x
+    dependencies:
+      lodash.debounce: 4.0.8
+      lodash.throttle: 4.1.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /react-redux/8.0.5_ux5ypa4vfeu6lrs5gncpqp4a4u:
     resolution: {integrity: sha512-Q2f6fCKxPFpkXt1qNRZdEDLlScsDWyrgSj0mliK59qU6W5gvBiKkdMEG2lJzhd1rCctf0hb6EtePPLZ2e0m1uw==}
     peerDependencies:
       '@types/react': ^16.8 || ^17.0 || ^18.0
@@ -1825,6 +1858,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-is: 18.2.0
+      redux: 4.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
     dev: false
 
@@ -1883,7 +1917,7 @@ packages:
       lodash.isplainobject: 4.0.6
     dev: true
 
-  /redux-persist/6.0.0_react@18.2.0:
+  /redux-persist/6.0.0_react@18.2.0+redux@4.2.0:
     resolution: {integrity: sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==}
     peerDependencies:
       react: '>=16'
@@ -1893,6 +1927,7 @@ packages:
         optional: true
     dependencies:
       react: 18.2.0
+      redux: 4.2.0
     dev: false
 
   /redux-thunk/2.4.2_redux@4.2.0:
