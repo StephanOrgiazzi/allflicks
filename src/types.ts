@@ -1,8 +1,9 @@
 interface Flick {
+    backdrop_path?: string
     id: number
-    title?: string
     name?: string
     poster_path: string
+    title?: string
     type: string
     year: number
 }

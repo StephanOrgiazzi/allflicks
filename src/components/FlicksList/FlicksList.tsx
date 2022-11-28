@@ -11,12 +11,13 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
     const [genre, setGenre] = useState('all')
     const [flickType] = useState(type)
     const genreOptions = flickType === 'movie' ? movieGenreOptions : tvGenreOptions
+    const sortBy = 'popularity'
 
     const {
         data: flicks,
         isLoading,
         isError
-    } = useFlicksListQuery({ flickType, page, genre }, { refetchOnMountOrArgChange: true, skip: !type ?? list })
+    } = useFlicksListQuery({ flickType, sortBy, page, genre }, { refetchOnMountOrArgChange: true, skip: !type ?? list })
 
     const flickList = list ? list : flicks
 
