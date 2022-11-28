@@ -46,7 +46,7 @@ function FlickPage() {
                     </h2>
                     <div className={styles.hero} style={{ backgroundImage: `url(${backdrop}` }}>
                         <figure>
-                            <img src={cover} alt="Poster of the movie" />
+                            <img src={cover} alt={`Poster of ${title || name}`} />
                         </figure>
                         <figcaption>
                             {title ?? name} <span> {title && `(${releaseYear})`}</span>
