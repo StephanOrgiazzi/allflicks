@@ -12,19 +12,17 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
     const [flickType] = useState(type)
     const genreOptions = flickType === 'movie' ? movieGenreOptions : tvGenreOptions
 
-    let {
+    const {
         data: flicks,
         isLoading,
         isError
     } = useFlicksListQuery({ flickType, page, genre }, { refetchOnMountOrArgChange: true, skip: !type ?? list })
 
-    if (list) {
-        flicks = list
-    } else {
-        const prefetchPage = usePrefetch('flicksList')
+    const flickList = list ? list : flicks
 
+    if (!list) {
+        const prefetchPage = usePrefetch('flicksList')
         const prefetchNext = useCallback(() => {
-            console.log('prefetching next page')
             prefetchPage({ flickType, page: page + 1 })
         }, [prefetchPage, page])
 
@@ -66,7 +64,7 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
                         </div>
                     )}
                     <ul data-testid="flicks-list">
-                        {flicks?.map((item: Flick) => (
+                        {flickList?.map((item: Flick) => (
                             <FlickCard
                                 key={item.id}
                                 id={item.id}
