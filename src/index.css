@@ -28,7 +28,7 @@ body {
 
 body::after {
     content: "";
-    background: url('./assets/background2.jpg');
+    background: url('./assets/background.jpg');
     background-size: cover;
     opacity: 0.05;
     top: 0;
