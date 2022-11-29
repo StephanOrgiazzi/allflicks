@@ -2,10 +2,10 @@ import { useCallback, useEffect, useState } from 'react'
 import { useFlicksListQuery, usePrefetch } from '../../store/apiSlice'
 import FlickCard from '../FlickCard/FlickCard'
 import Loader from '../UI/Loader/Loader'
-import styles from './FlicksList.module.scss'
 import Pagination from '../UI/Pagination/Pagination'
 import Filter from '../UI/Filter/Filter'
 import { Flick, FlickElement } from '../../types'
+import styles from './FlicksList.module.scss'
 
 function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
     const [page, setPage] = useState(1)

@@ -1,13 +1,13 @@
 import { useFlicksListQuery } from '../../store/apiSlice'
 import { backdropBaseUrl } from '../../constants/global'
 import { Link } from 'react-router-dom'
+import Loader from '../UI/Loader/Loader'
 import { Flick } from '../../types'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
 
 import 'swiper/css'
 import styles from './Featured.module.scss'
-import Loader from '../UI/Loader/Loader'
 
 function Featured({ type }: { type: string }) {
     const {

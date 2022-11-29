@@ -1,8 +1,8 @@
+import { useEffect } from 'react'
 import Nav from '../../../components/UI/Nav/Nav'
+import Footer from '../../../components/UI/Footer/Footer'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import styles from './Root.module.scss'
-import { useEffect } from 'react'
-import Footer from '../../../components/UI/Footer/Footer'
 
 function Root() {
     const location = useLocation()

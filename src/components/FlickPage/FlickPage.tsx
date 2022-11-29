@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useFlickQuery } from '../../store/apiSlice'
 import { convertTime } from '../../utils'
@@ -7,7 +8,6 @@ import { watchListActions } from '../../store/watchListSlice'
 import Loader from '../UI/Loader/Loader'
 import { State } from '../../types'
 import styles from './FlickPage.module.scss'
-import { useEffect } from 'react'
 
 function FlickPage() {
     const { flickType, flickId } = useParams()
