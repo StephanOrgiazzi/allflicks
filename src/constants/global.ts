@@ -22,8 +22,7 @@ const tvGenreOptions = [
     { value: '35', name: 'Comedy' },
     { value: '80', name: 'Crime' },
     { value: '18', name: 'Drama' },
-    { value: '10765', name: 'Sci-Fi-Fantasy' },
-    { value: '9648', name: 'Mystery' }
+    { value: '10765', name: 'Sci-Fi-Fantasy' }
 ]
 
 export { baseUrl, imgBaseUrl, backdropBaseUrl, apiKey, movieGenreOptions, tvGenreOptions }
