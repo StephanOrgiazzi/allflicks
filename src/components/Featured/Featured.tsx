@@ -10,18 +10,17 @@ import styles from './Featured.module.scss'
 import Loader from '../UI/Loader/Loader'
 
 function Featured({ type }: { type: string }) {
-    const flickType = type
-    const sortBy = 'vote_average'
-    const page = 1
-    const genre = ''
-
-    const { data: flicks, isLoading, isError } = useFlicksListQuery({ flickType, sortBy, page, genre })
+    const {
+        data: flicks,
+        isLoading,
+        isError
+    } = useFlicksListQuery({ flickType: type, sortBy: 'vote_average', page: 1, genre: '' })
 
     return (
         <>
             {!isLoading && (
                 <div className={styles.featured}>
-                    <h2>Best {flickType === 'tv' ? 'TV shows' : 'Movies'}</h2>
+                    <h2>Best {type === 'tv' ? 'TV shows' : 'Movies'}</h2>
                     <Swiper
                         slidesPerView={1}
                         spaceBetween={20}
@@ -45,7 +44,7 @@ function Featured({ type }: { type: string }) {
                             (item: Flick) =>
                                 item?.backdrop_path && (
                                     <SwiperSlide key={item.id}>
-                                        <Link to={`/${flickType}/${item.id}`}>
+                                        <Link to={`/${type}/${item.id}`}>
                                             <div className={styles.featured__item}>
                                                 <img
                                                     src={`${backdropBaseUrl}${item?.backdrop_path}`}
