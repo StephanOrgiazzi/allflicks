@@ -15,9 +15,10 @@ function Featured({ type }: { type: string }) {
     const genre = ''
 
     const { data: flicks, isLoading, isError } = useFlicksListQuery({ flickType, sortBy, page, genre })
+
     return (
         <div className={styles.featured}>
-            <h2>Best {flickType === 'tv' ? 'shows' : 'movies'}</h2>
+            <h2>Best {flickType === 'tv' ? 'TV shows' : 'Movies'}</h2>
             <Swiper
                 slidesPerView={3}
                 spaceBetween={20}

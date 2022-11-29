@@ -7,7 +7,7 @@ function WatchList() {
 
     return (
         <div>
-            <h1>WatchList</h1>
+            <h2>Watchlist</h2>
             <FlicksList list={state.watchList} />
         </div>
     )

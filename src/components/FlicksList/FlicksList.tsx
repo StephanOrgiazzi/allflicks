@@ -5,6 +5,7 @@ import { Flick, FlickElement } from '../../types'
 import { movieGenreOptions, tvGenreOptions } from '../../constants/global'
 import Loader from '../UI/Loader/Loader'
 import styles from './FlicksList.module.scss'
+import Pagination from '../UI/Pagination/Pagination'
 
 function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
     const [page, setPage] = useState(1)
@@ -36,16 +37,6 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
         setGenre(e.target.value)
     }
 
-    const nextPageHandler = () => {
-        setPage((prev) => prev + 1)
-        window.scrollTo(0, 0)
-    }
-
-    const backPageHandler = () => {
-        setPage((prev) => prev - 1)
-        window.scrollTo(0, 0)
-    }
-
     return (
         <>
             {!isLoading && (
@@ -64,7 +55,7 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
                             </select>
                         </div>
                     )}
-                    <ul data-testid="flicks-list">
+                    <ul data-testid="data-flicks-list">
                         {flickList?.map((item: Flick) => (
                             <FlickCard
                                 key={item.id}
@@ -76,10 +67,7 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
                             />
                         ))}
                     </ul>
-                    <div className={styles.pagination}>
-                        {!list && page > 1 && <button onClick={backPageHandler}>{'<'} Back</button>}
-                        {!list && <button onClick={nextPageHandler}>Next {'>'}</button>}
-                    </div>
+                    {!list && <Pagination setPage={setPage} hasPrev={page > 1} />}
                 </section>
             )}
             {isError && <p>Error: please try again later.</p>}

@@ -32,7 +32,7 @@ describe('Movie route and Show route', () => {
                 </ApiProvider>
             </Provider>
         )
-        const list = await screen.findByTestId('flicks-list')
+        const list = await screen.findByTestId('data-flicks-list')
         expect(list).toBeInTheDocument()
     })
 
