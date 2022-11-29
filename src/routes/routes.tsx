@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom'
+import { createBrowserRouter, createRoutesFromElements, Navigate, Route } from 'react-router-dom'
 import Root from './pages/Root/Root'
 import Loader from '../components/UI/Loader/Loader'
 
@@ -13,6 +13,7 @@ export const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Root />} errorElement={<Error />}>
             <Route errorElement={<Error />}>
+                <Route path="*" element={<Navigate to="/movie" replace />} />
                 <Route
                     path="/movie/"
                     element={
