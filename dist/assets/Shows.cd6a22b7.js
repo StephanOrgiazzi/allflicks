@@ -1,0 +1,1 @@
+import{F as t}from"./Featured.91a8c749.js";import{F as s}from"./FlicksList.12dc2dcb.js";import{j as e,a as r}from"./index.3fa03612.js";function n(){return e("div",{children:[" ",r(t,{type:"tv"}),r("h2",{children:"Trending"}),r(s,{type:"tv"})]})}export{n as default};
