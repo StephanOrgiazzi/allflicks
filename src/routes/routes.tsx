@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBrowserRouter, createRoutesFromElements, Navigate, Route } from 'react-router-dom'
+import { createHashRouter, createRoutesFromElements, Navigate, Route } from 'react-router-dom'
 import Root from './pages/Root/Root'
 import Loader from '../components/UI/Loader/Loader'
 
@@ -9,7 +9,7 @@ const WatchList = React.lazy(() => import('./pages/WatchList/WatchList'))
 const FlickPage = React.lazy(() => import('../components/FlickPage/FlickPage'))
 const Error = React.lazy(() => import('./pages/Error/Error'))
 
-export const router = createBrowserRouter(
+export const router = createHashRouter(
     createRoutesFromElements(
         <Route path="/" element={<Root />} errorElement={<Error />}>
             <Route errorElement={<Error />}>
