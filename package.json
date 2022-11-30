@@ -6,8 +6,6 @@
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist",
         "preview": "vite preview",
         "test": "vitest",
         "coverage": "vitest run --coverage"
@@ -34,7 +32,6 @@
         "@types/react": "^18.0.24",
         "@types/react-dom": "^18.0.8",
         "@vitejs/plugin-react": "^2.2.0",
-        "gh-pages": "^4.0.0",
         "jsdom": "^20.0.2",
         "redux-mock-store": "^1.5.4",
         "sass": "^1.56.1",
