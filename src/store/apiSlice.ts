@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { baseUrl, apiKey } from '../constants/global'
-import { Movie, Show } from '../types'
 
 export const apiSlice = createApi({
     reducerPath: 'api',
@@ -12,7 +11,7 @@ export const apiSlice = createApi({
         flicksList: builder.query({
             query: ({ flickType, sortBy, page, genre }) =>
                 `discover/${flickType}?${apiKey}&sort_by=${sortBy}.desc&vote_count.gte=1500&with_genres=${genre}&page=${page}`,
-            transformResponse: (res: { results: Movie[] | Show[] }) => res.results,
+            transformResponse: (res: { results: any }) => res.results,
             providesTags: ['Flicks'],
         }),
         flick: builder.query({
