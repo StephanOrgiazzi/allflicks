@@ -12,7 +12,7 @@ export const apiSlice = createApi({
         flicksList: builder.query({
             query: ({ flickType, sortBy, page, genre }) =>
                 `discover/${flickType}?${apiKey}&sort_by=${sortBy}.desc&vote_count.gte=1500&with_genres=${genre}&page=${page}`,
-            transformResponse: (res: { results: Movie | Show }) => res.results,
+            transformResponse: (res: { results: Movie[] | Show[] }) => res.results,
             providesTags: ['Flicks'],
         }),
         flick: builder.query({
