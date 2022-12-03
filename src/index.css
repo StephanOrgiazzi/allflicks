@@ -32,6 +32,8 @@ body::after {
     background-size: cover;
     -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
     opacity: 0.15;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
     top: 0;
     left: 0;
     bottom: 0;
