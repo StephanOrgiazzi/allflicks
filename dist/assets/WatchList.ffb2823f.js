@@ -1,1 +1,0 @@
-import{f as a,j as c,a as t}from"./index.3fa03612.js";import{F as r}from"./FlicksList.12dc2dcb.js";function h(){const s=a(i=>i.watchList);return c("div",{children:[t("h2",{children:"Watchlist"}),t(r,{list:s.watchList})]})}export{h as default};
