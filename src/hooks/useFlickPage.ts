@@ -1,10 +1,10 @@
+import { State } from "../types"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
 import { backdropBaseUrl, imgBaseUrl } from "../constants/global"
 import { useFlickQuery } from "../store/apiSlice"
 import { watchListActions } from "../store/watchListSlice"
-import { State } from "../types"
 import { convertTime } from "../utils"
 
 export const useFlickPage = () => {

@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
 import { FlickElement } from '../types'
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     watchList: []

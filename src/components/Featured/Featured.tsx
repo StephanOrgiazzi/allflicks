@@ -1,8 +1,8 @@
+import { Flick } from '../../types'
 import { useFlicksListQuery } from '../../store/apiSlice'
 import { backdropBaseUrl } from '../../constants/global'
 import { Link } from 'react-router-dom'
 import Loader from '../UI/Loader/Loader'
-import { Flick } from '../../types'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
 
