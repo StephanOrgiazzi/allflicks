@@ -20,7 +20,7 @@ export const useFlickPage = () => {
     const genres = data?.genres?.map((genre: { id: number; name: string }) => `${genre.name}`).join(', ')
     const runtime = data?.runtime ? convertTime(data?.runtime) : `${number_of_seasons} Seasons`
     const cover = `${imgBaseUrl}${data?.poster_path}`
-    const releaseYear = data?.release_date?.substring(0, 4)
+    const releaseYear = data?.release_date?.substring(0, 4) || data?.first_air_date?.substring(0, 4)
     const backdrop = `${backdropBaseUrl}${data?.backdrop_path}`
 
     let navigate = useNavigate()
