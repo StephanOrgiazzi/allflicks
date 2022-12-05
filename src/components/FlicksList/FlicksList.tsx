@@ -1,11 +1,12 @@
 import { Flick, FlickElement } from '../../types'
-import { useCallback, useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useFlicksListQuery, usePrefetch } from '../../store/apiSlice'
 import FlickCard from '../FlickCard/FlickCard'
 import Loader from '../UI/Loader/Loader'
 import Pagination from '../UI/Pagination/Pagination'
 import Filter from '../UI/Filter/Filter'
 import styles from './FlicksList.module.scss'
+import usePrefetchFlicks from '../../hooks/usePrefetch'
 
 function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
     const [page, setPage] = useState(1)
@@ -23,16 +24,7 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
 
     const flickList = list ? list : flicks
 
-    if (!list) {
-        const prefetchPage = usePrefetch('flicksList')
-        const prefetchNext = useCallback(() => {
-            prefetchPage({ flickType, page: page + 1 })
-        }, [prefetchPage, page])
-
-        useEffect(() => {
-            if (!isLoading) prefetchNext()
-        }, [prefetchNext, isLoading])
-    }
+    if (!list) usePrefetchFlicks(page, isLoading, flickType)
 
     return (
         <>
