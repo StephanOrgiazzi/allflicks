@@ -21,32 +21,4 @@ describe('Movie route and Show route', () => {
         )
         expect(screen.getByRole('navigation')).toBeInTheDocument()
     })
-
-    it('should render a list', async () => {
-        render(
-            <Provider store={store}>
-                <ApiProvider api={apiSlice}>
-                    <MemoryRouter>
-                        <Movies />
-                    </MemoryRouter>
-                </ApiProvider>
-            </Provider>
-        )
-        const list = await screen.findByTestId('data-flicks-list')
-        expect(list).toBeInTheDocument()
-    })
-
-    it('should render a list', async () => {
-        render(
-            <Provider store={store}>
-                <ApiProvider api={apiSlice}>
-                    <MemoryRouter>
-                        <Shows />
-                    </MemoryRouter>
-                </ApiProvider>
-            </Provider>
-        )
-        const list = await screen.findByTestId('data-flicks-list')
-        expect(list).toBeInTheDocument()
-    })
 })

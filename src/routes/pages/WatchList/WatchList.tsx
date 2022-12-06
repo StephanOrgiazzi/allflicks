@@ -1,9 +1,9 @@
-import { State } from '../../../types'
+import { WatchlistState } from '../../../types'
 import { useSelector } from 'react-redux'
 import FlicksList from '../../../components/FlicksList/FlicksList'
 
 function WatchList() {
-    const state = useSelector((state: State) => state.watchList)
+    const state = useSelector((state: WatchlistState) => state.watchList)
 
     return (
         <div>
