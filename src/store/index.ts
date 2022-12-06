@@ -1,9 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 import { apiSlice } from './apiSlice'
 import watchListReducer from './watchListSlice'
-
-import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
+import listStateReducer from './listStateSlice'
 import storage from 'redux-persist/lib/storage'
 
 const persistConfig = {
@@ -17,9 +16,9 @@ const persistedWatchlistReducer = persistReducer(persistConfig, watchListReducer
 const store = configureStore({
     reducer: {
         [apiSlice.reducerPath]: apiSlice.reducer,
+        listState: listStateReducer,
         watchList: persistedWatchlistReducer
     },
-
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {

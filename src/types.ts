@@ -13,10 +13,18 @@ type FlickElement = {
     type: string
 }
 
-type State = {
+type WatchlistState = {
     watchList: {
         watchList: FlickElement[]
     }
 }
 
-export type { Flick, FlickElement, State }
+type ListState = {
+    listState: {
+        page: number
+        genre: string
+    }
+}
+
+
+export type { Flick, FlickElement, WatchlistState, ListState }

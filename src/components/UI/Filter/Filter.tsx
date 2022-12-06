@@ -1,12 +1,15 @@
+import { useDispatch } from 'react-redux'
+import { listStateActions } from '../../../store/listStateSlice'
 import { movieGenreOptions, tvGenreOptions } from '../../../constants/global'
 
 import styles from './Filter.module.scss'
 
-function Filter({ flickType, genre, setGenre }: { flickType?: string; genre: string; setGenre: Function }) {
+function Filter({ flickType, genre }: { flickType?: string; genre: string }) {
     const options = flickType === 'movie' ? movieGenreOptions : tvGenreOptions
+    const dispatch = useDispatch()
 
     const changeGenreHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setGenre(e.target.value)
+        dispatch(listStateActions.changeGenre(e.target.value))
     }
 
     return (

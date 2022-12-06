@@ -1,4 +1,4 @@
-import { State } from "../types"
+import { WatchlistState } from "../types"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
@@ -12,7 +12,7 @@ export const useFlickPage = () => {
     const { data, isLoading, isError } = useFlickQuery({ flickType, flickId }, { skip: !flickId })
 
     const dispatch = useDispatch()
-    const state = useSelector((state: State) => state.watchList)
+    const state = useSelector((state: WatchlistState) => state.watchList)
     const isInWatchList = state.watchList.some((item) => item.id === flickId)
 
     const { name, number_of_seasons, overview, tagline, title, vote_average: rating, id } = data || {}

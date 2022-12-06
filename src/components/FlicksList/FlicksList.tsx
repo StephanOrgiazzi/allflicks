@@ -1,6 +1,6 @@
-import { Flick, FlickElement } from '../../types'
-import { useState } from 'react'
-import { useFlicksListQuery, usePrefetch } from '../../store/apiSlice'
+import { Flick, FlickElement, ListState } from '../../types'
+import { useFlicksListQuery } from '../../store/apiSlice'
+import { useSelector } from 'react-redux'
 import usePrefetchFlicks from '../../hooks/usePrefetch'
 import FlickCard from '../FlickCard/FlickCard'
 import Loader from '../UI/Loader/Loader'
@@ -9,8 +9,8 @@ import Filter from '../UI/Filter/Filter'
 import styles from './FlicksList.module.scss'
 
 function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
-    const [page, setPage] = useState(1)
-    const [genre, setGenre] = useState('all')
+    const page = useSelector<ListState, number>((state: ListState) => state.listState.page)
+    const genre = useSelector<ListState, string>((state: ListState) => state.listState.genre)
     const flickType = type
 
     const {
@@ -29,7 +29,7 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
     return (
         <>
             <section className={styles['flicks-list']}>
-                {!list && <Filter flickType={flickType} genre={genre} setGenre={setGenre} />}
+                {!list && <Filter flickType={flickType} genre={genre} />}
                 <ul data-testid="data-flicks-list">
                     {flickList?.map((item: Flick) => (
                         <FlickCard
@@ -42,7 +42,7 @@ function FlicksList({ type, list }: { type?: string; list?: FlickElement[] }) {
                         />
                     ))}
                 </ul>
-                {!list && <Pagination setPage={setPage} hasPrev={page > 1} />}
+                {!list && <Pagination hasPrev={page > 1} />}
             </section>
             {isError && <p>Error: please try again later.</p>}
             {!isError && list?.length === 0 && <p>Your watchlist is empty</p>}

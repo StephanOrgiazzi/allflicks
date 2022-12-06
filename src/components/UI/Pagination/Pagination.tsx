@@ -1,13 +1,18 @@
+import { useDispatch, useSelector } from 'react-redux'
+import { listStateActions } from '../../../store/listStateSlice'
+
 import styles from './Pagination.module.scss'
 
-function Pagination({ setPage, hasPrev }: { setPage: Function; hasPrev: boolean }) {
+function Pagination({ hasPrev }: { hasPrev: boolean }) {
+    const dispatch = useDispatch()
+
     const nextPageHandler = () => {
-        setPage((page: number) => page + 1)
+        dispatch(listStateActions.goNext())
         window.scrollTo(0, 0)
     }
 
     const backPageHandler = () => {
-        setPage((prev: number) => prev - 1)
+        dispatch(listStateActions.goPrev())
         window.scrollTo(0, 0)
     }
 
