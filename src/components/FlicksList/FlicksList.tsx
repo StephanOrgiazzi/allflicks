@@ -1,7 +1,7 @@
 import { Flick, FlickElement, ListState } from '../../types'
 import { useFlicksListQuery } from '../../store/apiSlice'
 import { useSelector } from 'react-redux'
-import usePrefetchFlicks from '../../hooks/usePrefetch'
+import { usePrefetchFlicks } from '../../hooks/usePrefetch'
 import FlickCard from '../FlickCard/FlickCard'
 import Loader from '../UI/Loader/Loader'
 import Pagination from '../UI/Pagination/Pagination'

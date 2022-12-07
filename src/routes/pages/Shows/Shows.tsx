@@ -1,15 +1,9 @@
-import { useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-import { listStateActions } from '../../../store/listStateSlice'
 import Featured from '../../../components/Featured/Featured'
 import FlicksList from '../../../components/FlicksList/FlicksList'
+import { useResetListState } from '../../../hooks/useResetListState'
 
 function Shows() {
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(listStateActions.resetState())
-    }, [])
+    useResetListState()
 
     return (
         <div>
