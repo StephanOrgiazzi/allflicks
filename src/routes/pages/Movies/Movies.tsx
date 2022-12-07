@@ -1,10 +1,7 @@
 import Featured from '../../../components/Featured/Featured'
 import FlicksList from '../../../components/FlicksList/FlicksList'
-import { useResetListState } from '../../../hooks/useResetListState'
 
 function Movies() {
-    useResetListState()
-
     return (
         <div>
             <Featured type="movie" />

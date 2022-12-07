@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 import Logo from '../../../assets/logo.png'
+import { useResetListState } from '../../../hooks/useResetListState'
 import styles from './Nav.module.scss'
 
 function Nav() {
@@ -15,12 +16,17 @@ function Nav() {
                     <NavLink
                         to="movie"
                         style={({ isActive }) => (isActive ? { color: '#f5f5f5' } : { color: '#545e6f' })}
+                        onClick={() => useResetListState()}
                     >
                         Movies
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="tv" style={({ isActive }) => (isActive ? { color: '#f5f5f5' } : { color: '#545e6f' })}>
+                    <NavLink
+                        to="tv"
+                        style={({ isActive }) => (isActive ? { color: '#f5f5f5' } : { color: '#545e6f' })}
+                        onClick={() => useResetListState()}
+                    >
                         TV Shows
                     </NavLink>
                 </li>
