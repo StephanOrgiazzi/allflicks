@@ -15,6 +15,10 @@ const listStateSlice = createSlice({
         goPrev(state) {
             state.page = state.page - 1
         },
+        resetState(state) {
+            state.page = 1
+            state.genre = 'all'
+        },
         changeGenre(state, action) {
             state.genre = action.payload
         }
