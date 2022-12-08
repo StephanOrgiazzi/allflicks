@@ -1,7 +1,7 @@
 const baseUrl = 'https://api.themoviedb.org/3'
 const imgBaseUrl = 'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/'
 const backdropBaseUrl = 'https://image.tmdb.org/t/p/w500/'
-const apiKey = 'api_key=4279c0bf7fc9803dfda201662c10705f'
+const apiKey = '4279c0bf7fc9803dfda201662c10705f'
 
 const movieGenreOptions = [
     { value: '', name: 'All' },

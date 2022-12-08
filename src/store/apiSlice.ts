@@ -10,12 +10,12 @@ export const apiSlice = createApi({
     endpoints: (builder) => ({
         flicksList: builder.query({
             query: ({ flickType, sortBy, page, genre }) =>
-                `discover/${flickType}?${apiKey}&sort_by=${sortBy}.desc&vote_count.gte=${sortBy === 'vote_average' ? '5000' : '700'}&with_genres=${genre}&page=${page}`,
+                `discover/${flickType}?api_key=${apiKey}&sort_by=${sortBy}.desc&vote_count.gte=${sortBy === 'vote_average' ? '5000' : '700'}&with_genres=${genre}&page=${page}`,
             transformResponse: (res: { results: any }) => res.results,
             providesTags: ['Flicks'],
         }),
         flick: builder.query({
-            query: ({ flickType, flickId }) => `${flickType}/${flickId}?${apiKey}`,
+            query: ({ flickType, flickId }) => `${flickType}/${flickId}?api_key=${apiKey}`,
             providesTags: ['Flicks']
         })
     })
